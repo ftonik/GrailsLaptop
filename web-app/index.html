@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script type='text/javascript' src="js/knockout-3.3.0.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+<form action='/someServerSideHandler'>
+    <p>You have <span data-bind='text: laptops().length'>&nbsp;</span> laptop(s)</p>
+    <select multiple="multiple" height="7"  data-bind="options: $root.laptops, value: name, optionsText: 'name', selectedOptions:selectedItems"> </select>
+    <div>
+        <button data-bind="click: removeSelected, enable: selectedItems().length > 0">Remove</button>
+    </div>
+</form>
+
+<div>
+    <h3>New laptop</h3>
+    <form data-bind="submit: addLaptop">
+        <p>Name: <input data-bind="value: newLaptopName" /></p>
+        <p>Price: &nbsp;<input data-bind="value: newLaptopPrice" /></p>
+        <button type="submit">Add Laptop</button>
+    </form>
+
+</div>
+<script src="js/laptops.js"></script>
+</body>
+</html>
+
+
